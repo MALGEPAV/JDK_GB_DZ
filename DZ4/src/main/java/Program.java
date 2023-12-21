@@ -20,7 +20,7 @@ public class Program {
 
         System.out.println("Phone numbers of employyes named Mark:");
         System.out.println(employeeRegistry.getPhoneNumberByName("Mark"));
-        
+
         System.out.println("The employee with ID: 4");
         System.out.println(employeeRegistry.getEmpByID(4));
     }
