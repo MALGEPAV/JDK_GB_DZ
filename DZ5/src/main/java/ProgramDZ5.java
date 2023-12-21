@@ -26,29 +26,17 @@ public class ProgramDZ5 {
             }
         }
     }
-
-
+    
     static class Philosopher implements Runnable {
         final Table table;
 
         Philosopher(Table table) {
             this.table = table;
         }
-
-//        void think() {
-//            System.out.println(Thread.currentThread().getName() + ": Думаю...");
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-
         @Override
         public void run() {
             for (int i = 0; i < 3; i++) {
                 table.useTable();
-               // think();
             }
         }
     }
