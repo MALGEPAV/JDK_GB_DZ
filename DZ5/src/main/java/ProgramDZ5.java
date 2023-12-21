@@ -19,7 +19,8 @@ public class ProgramDZ5 {
             System.out.println(name + ": стол свободен!");
             notifyAll();
             try {
-                wait(100);
+                System.out.println(Thread.currentThread().getName() + ": Думаю...");
+                wait(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -34,20 +35,20 @@ public class ProgramDZ5 {
             this.table = table;
         }
 
-        void think() {
-            System.out.println(Thread.currentThread().getName() + ": Думаю...");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        void think() {
+//            System.out.println(Thread.currentThread().getName() + ": Думаю...");
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
 
         @Override
         public void run() {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 3; i++) {
                 table.useTable();
-                //think();
+               // think();
             }
         }
     }
