@@ -8,18 +8,9 @@ public class ProgramDZ5 {
     }
 
     static class Table {
-        boolean tableOccupied = false;
 
         synchronized void useTable() {
             String name = Thread.currentThread().getName();
-            while (tableOccupied) {
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            tableOccupied = true;
             System.out.println(name + ": кушаю");
             try {
                 Thread.sleep(500);
@@ -27,7 +18,6 @@ public class ProgramDZ5 {
                 throw new RuntimeException(e);
             }
             System.out.println(name + ": стол свободен!");
-            tableOccupied = false;
             notifyAll();
         }
     }
@@ -41,7 +31,7 @@ public class ProgramDZ5 {
         }
 
         void think() {
-            System.out.println(Thread.currentThread().getName()+": Думаю...");
+            System.out.println(Thread.currentThread().getName() + ": Думаю...");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
