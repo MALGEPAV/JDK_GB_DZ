@@ -8,7 +8,6 @@ public class ProgramDZ5 {
     }
 
     static class Table {
-
         synchronized void useTable() {
             String name = Thread.currentThread().getName();
             System.out.println(name + ": кушаю");
@@ -19,6 +18,11 @@ public class ProgramDZ5 {
             }
             System.out.println(name + ": стол свободен!");
             notifyAll();
+            try {
+                wait(100);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -41,9 +45,9 @@ public class ProgramDZ5 {
 
         @Override
         public void run() {
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 5; i++) {
                 table.useTable();
-                think();
+                //think();
             }
         }
     }
