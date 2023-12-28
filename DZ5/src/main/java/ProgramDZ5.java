@@ -26,7 +26,7 @@ public class ProgramDZ5 {
             }
         }
     }
-    
+
     static class Philosopher implements Runnable {
         final Table table;
 
