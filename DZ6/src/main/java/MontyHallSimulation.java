@@ -5,12 +5,12 @@ public class MontyHallSimulation {
 
         SuperGame superGame = new SuperGame();
         superGame.setPlayer(goodPlayer);
-        superGame.Play(1000);
+        superGame.Play(100);
         System.out.println("Good player stats:");
         superGame.printStats();
 
         superGame.setPlayer(badPlayer);
-        superGame.Play(1000);
+        superGame.Play(100);
         System.out.println("Bad player stats:");
         superGame.printStats();
     }
